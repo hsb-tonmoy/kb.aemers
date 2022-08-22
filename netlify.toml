@@ -1,5 +1,5 @@
-[build]
-  command = "pnpm build"
-  publish = "build"
 [build.environment]
   NPM_FLAGS="--prefix=/dev/null"
+[build]
+  command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build"
+  publish = "build"
