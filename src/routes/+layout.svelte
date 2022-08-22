@@ -1,14 +1,15 @@
 <script>
 	import '../app.postcss';
 	import Header from '$lib/layout/header/Header.svelte';
+	import Hero from '$lib/layout/header/home/hero/Hero.svelte';
 </script>
 
 <svelte:head>
 	<title>Aemers - Knowledgebase</title>
 </svelte:head>
 
-<main class="flex flex-col h-screen">
+<div class="flex flex-col h-screen">
 	<Header />
-
-	<slot />
-</main>
+	<Hero />
+</div>
+<slot />
