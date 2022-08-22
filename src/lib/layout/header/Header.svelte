@@ -7,7 +7,7 @@
 	let:hidden
 	let:toggle
 	fluid={false}
-	navClass={'navBar bg-white px-6 py-4'}
+	navClass={'navBar bg-white px-6 py-4 w-full'}
 	navDivClass={'flex flex-wrap items-center justify-between w-full'}
 >
 	<NavBrand href="/">

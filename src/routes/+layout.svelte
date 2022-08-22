@@ -7,9 +7,8 @@
 	<title>Aemers - Knowledgebase</title>
 </svelte:head>
 
-<div class="flex flex-col h-screen">
+<main class="flex flex-col h-screen">
 	<Header />
-	<main class="flex-1">
-		<slot />
-	</main>
-</div>
+
+	<slot />
+</main>
