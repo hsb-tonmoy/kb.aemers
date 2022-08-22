@@ -33,8 +33,7 @@ const config = {
 	plugins: [
 		require('@tailwindcss/forms')({
 			strategy: 'class'
-		}),
-		require('flowbite/plugin')
+		})
 	]
 };
 
