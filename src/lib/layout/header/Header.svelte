@@ -1,7 +1,6 @@
 <script>
 	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
 	import Logo from './Logo.svelte';
-	import Menu from './Menu.svelte';
 </script>
 
 <Navbar
@@ -9,7 +8,7 @@
 	let:toggle
 	fluid={false}
 	navClass={'navBar bg-white px-6 py-4'}
-	navDivClass={'flex items-center justify-between w-full'}
+	navDivClass={'flex flex-wrap items-center justify-between w-full'}
 >
 	<NavBrand href="/">
 		<Logo />
@@ -19,7 +18,7 @@
 
 	<NavUl
 		{hidden}
-		ulClass={'flex flex-col justify-center md:flex-row md:items-center md:gap-x-10 2xl:text-lg text-secondary'}
+		ulClass={'flex flex-col items-start justify-center gap-y-4 mt-4 md:mt-0 md:flex-row md:items-center md:gap-x-10 2xl:text-lg text-secondary'}
 	>
 		<NavLi nonActiveClass={'menu-item'} href="https://aemers.com/services">Services</NavLi>
 		<NavLi nonActiveClass={'menu-item'} activeClass={'menu-tiem-active'} href="/" active={true}
