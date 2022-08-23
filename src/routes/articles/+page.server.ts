@@ -1,12 +1,38 @@
+import { getDirectusClient } from '$lib/client';
 import { error } from '@sveltejs/kit';
-import { get } from '$lib/api';
 
 export async function load() {
-	const response = await get('items/articles');
-	const articles = await response.json();
+	const directus = await getDirectusClient();
+	let response;
 
-	if (response.ok) {
-		return articles;
+	try {
+		response = await directus.items('articles').readByQuery({
+			fields: ['*', 'category.id', 'category.name', 'category.slug']
+		});
+	} catch (err) {
+		console.log(err);
+		throw error(404, 'Articles not found');
 	}
-	throw error(500, 'Server Error. Please try again later.');
+
+	const formattedArticles = response.data.map((article) => {
+		return {
+			...article,
+			category: {
+				id: article.category.id,
+				name: article.category.name,
+				slug: article.category.slug
+			}
+		};
+	});
+
+	const featuredArticles = await directus.items('articles').readByQuery({
+		fields: ['*', 'category.id', 'category.name', 'category.slug'],
+		filter: {
+			featured: {
+				_eq: true
+			}
+		}
+	});
+	console.log(featuredArticles);
+	return { formattedArticles, featuredArticles };
 }

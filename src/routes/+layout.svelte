@@ -1,7 +1,7 @@
 <script>
-	import '../app.postcss';
 	import Header from '$lib/layout/header/Header.svelte';
 	import Hero from '$lib/layout/header/home/hero/Hero.svelte';
+	import '../app.postcss';
 </script>
 
 <svelte:head>
