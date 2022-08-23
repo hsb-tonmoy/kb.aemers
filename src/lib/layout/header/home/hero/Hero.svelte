@@ -1,7 +1,7 @@
 <script>
+	import { Scroll } from '$lib/svg';
 	import Youtube from 'svelte-youtube-embed';
 	import Search from './search.svelte';
-	import { Scroll } from '$lib/svg';
 </script>
 
 <section

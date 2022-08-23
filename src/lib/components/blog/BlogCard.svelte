@@ -1,12 +1,20 @@
-<script></script>
+<script lang="ts">
+	import { getAssetURL, truncateWords } from '$lib/utils';
+	export let title: String, slug: String, summary: String, image: String;
+</script>
 
 <div class="flex flex-col gap-y-4 bg-[#FBFAFF] p-6 border border-borderColor rounded-2xl">
-	<img src="/images/blog-img.png" alt="blog-img" />
+	<a href={`/article/${slug}`}
+		><img
+			class="object-cover h-32 md:h-48 w-full rounded-xl"
+			src={getAssetURL(image)}
+			alt="blog-img"
+		/></a
+	>
 	<h6 class="text-secondary font-bold text-lg">
-		How to perform well in visa interview (Preparation Guide).
+		<a href={`/article/${slug}`}>{title}</a>
 	</h6>
 	<p class="text-lighterText text-sm leading-normal">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur justo non risus a
-		pharetra ut cras pharetra. Metus, elit...
+		{truncateWords(summary, 20)}
 	</p>
 </div>

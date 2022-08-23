@@ -26,6 +26,11 @@ const config = {
 			fontFamily: {
 				primary: ['Red Hat Display', 'sans-serif'],
 				secondary: ['Barlow', 'sans-serif']
+			},
+			gridTemplateColumns: {
+				'max-content-1': 'repeat(1, minmax(0, max-content))',
+				'max-content-2': 'repeat(2, minmax(0, max-content))',
+				'max-content-3': 'repeat(3, minmax(0, max-content))'
 			}
 		}
 	},
