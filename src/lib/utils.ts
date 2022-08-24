@@ -1,6 +1,7 @@
-export function getAssetURL(id) {
+export function getAssetURL(id: String) {
 	if (!id) return null;
-	return `${import.meta.env.VITE_API_URL}assets/${id}`;
+	const baseURL = import.meta.env.VITE_API_URL;
+	return `${baseURL}assets/${id}`;
 }
 
 export function truncateWords(str: String, num: number) {

@@ -1,6 +1,6 @@
 <script>
-	import CategorySection from '$lib/layout/header/home/blog/CategorySection.svelte';
-	import Featured from '$lib/layout/header/home/blog/Featured.svelte';
+	import CategorySection from '$lib/layout/home/blog/CategorySection.svelte';
+	import Featured from '$lib/layout/home/blog/Featured.svelte';
 	export let data;
 </script>
 
@@ -18,6 +18,6 @@
 
 <style lang="postcss">
 	.articles {
-		@apply grid grid-cols-max-content-1 md:grid-cols-max-content-2 2xl:grid-cols-max-content-3  3xl:grid-cols-max-content-large gap-x-16 gap-y-24;
+		@apply grid grid-cols-max-content-1 md:grid-cols-max-content-2 3xl:grid-cols-max-content-large gap-x-24 gap-y-28 md:gap-y-32;
 	}
 </style>
