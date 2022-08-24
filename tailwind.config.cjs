@@ -7,6 +7,9 @@ const config = {
 	darkMode: 'class',
 	theme: {
 		extend: {
+			screens: {
+				'3xl': '2000px'
+			},
 			colors: {
 				primary: '#7443FF',
 				primaryDarker: '#5F27FF',
@@ -15,7 +18,7 @@ const config = {
 				lighterText: '#727272',
 				borderColor: '#E3D9FF',
 				bgColor: '#F9F6FF',
-				dividerColor: 'rgba(190, 190, 190, 1)'
+				dividerColor: '#BEBEBE'
 			},
 			width: {
 				120: '30rem'
@@ -30,7 +33,8 @@ const config = {
 			gridTemplateColumns: {
 				'max-content-1': 'repeat(1, minmax(0, max-content))',
 				'max-content-2': 'repeat(2, minmax(0, max-content))',
-				'max-content-3': 'repeat(3, minmax(0, max-content))'
+				'max-content-3': 'repeat(3, minmax(0, max-content))',
+				'max-content-large': 'repeat(auto-fit, minmax(600px, 1fr))'
 			}
 		}
 	},

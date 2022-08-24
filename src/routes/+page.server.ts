@@ -7,7 +7,17 @@ export async function load() {
 
 	try {
 		response = await directus.items('articles').readByQuery({
-			fields: ['*', 'category.id', 'category.name', 'category.slug']
+			fields: [
+				'title',
+				'slug',
+				'featured_image',
+				'summary',
+				'featured',
+				'category.id',
+				'category.name',
+				'category.slug',
+				'article_stats.views'
+			]
 		});
 	} catch (err) {
 		console.log(err);
@@ -36,7 +46,15 @@ export async function load() {
 
 	// Filter articles by featured
 
-	const featuredArticles = response.data.filter((article) => article.featured);
+	const featuredArticles = await directus.items('articles').readByQuery({
+		fields: ['title', 'slug', 'featured_image', 'summary'],
+		filter: {
+			featured: {
+				_eq: true
+			}
+		},
+		limit: 5
+	});
 
-	return { articlesGroupedByCategory, featuredArticles };
+	return { articlesGroupedByCategory, featuredArticles: featuredArticles.data };
 }
