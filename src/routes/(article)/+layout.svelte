@@ -5,7 +5,7 @@
 	import { fly } from 'svelte/transition';
 	export let data;
 
-	let categoryShow = false;
+	let categoryShow = true;
 
 	import { page } from '$app/stores';
 
@@ -30,7 +30,7 @@
 		{/if}
 		{#if categoryShow}
 			<div
-				class="hidden xl:flex sticky left-0 top-0 w-[20%] shrink-0 z-[400] self-start max-h-screen"
+				class="hidden xl:flex sticky left-0 top-0 w-[20%] shrink-0 z-[400] self-start max-h-screen overflow-y-auto"
 			>
 				<LeftSidebar bind:categoryShow {current_article_id} data={data.categories} />
 			</div>

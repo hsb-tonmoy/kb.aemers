@@ -42,6 +42,7 @@
 	"dependencies": {
 		"@directus/sdk": "^10.1.4",
 		"@tailwindcss/forms": "^0.5.2",
-		"dotenv": "^16.0.1"
+		"dotenv": "^16.0.1",
+		"svrollbar": "^0.12.0"
 	}
 }

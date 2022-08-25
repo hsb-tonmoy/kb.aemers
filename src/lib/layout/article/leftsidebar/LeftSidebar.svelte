@@ -10,9 +10,9 @@
 <aside
 	in:fly={{ x: -200, duration: 500 }}
 	out:fly={{ x: -200, duration: 500 }}
-	class="flex flex-col py-12 px-10 w-[50vw] 2xl:w-full h-full bg-white"
+	class="flex flex-col py-12 px-6 md:px-10 w-[85vw] md:w-[50vw] 2xl:w-full h-full bg-white"
 >
-	<div class="flex justify-between items-center mb-4">
+	<div class="flex justify-between items-center gap-x-8 md:gap-x-0 mb-4">
 		<h2 class="font-bold text-xl">Categories</h2>
 		<button
 			on:click={() => (categoryShow = !categoryShow)}

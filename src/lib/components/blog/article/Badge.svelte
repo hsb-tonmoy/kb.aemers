@@ -8,7 +8,7 @@
 
 <div
 	style={`background-color: ${badge_bg_color}; color: ${badge_text_color}; font-weight: ${font_weight};`}
-	class="flex items-center gap-x-2 px-4 py-2 rounded-lg"
+	class="flex items-center gap-x-2 px-4 py-2 rounded-lg text-sm md:text-base"
 >
 	{#if badge_icon}
 		<span class="w-5 h-5">

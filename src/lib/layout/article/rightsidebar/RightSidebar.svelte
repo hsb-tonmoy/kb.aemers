@@ -9,16 +9,20 @@
 		discussion_url: String;
 </script>
 
-<aside class="flex flex-col gap-y-12 py-12 px-16 w-full h-full bg-white">
+<aside
+	class="grid grid-cols-1 md:grid-cols-2 gap-6 xl:flex flex-col xl:gap-y-12 px-6 py-4 xl:py-12 xl:px-12 2xl:px-16 w-full xl:h-full bg-bgColor xl:bg-white"
+>
 	<div class="">
 		<h6>Level of Knowledge</h6>
-		<div class="flex items-center justify-between gap-x-6 px-10 py-4 bg-[#F7F4FF] rounded-lg">
+		<div
+			class="flex items-center xl:justify-between gap-x-6 xl:px-10 xl:py-4 bg-[#F7F4FF] rounded-lg text-sm md:text-base"
+		>
 			<div
 				class={`flex flex-col items-center ${
 					level === 'undergrad' ? 'text-primary font-bold' : 'text-[#CBB9FF]'
 				} `}
 			>
-				<span class={`w-12 h-12`}><GraduationCap /></span>
+				<span class={`w-8 h-8 md:w-12 md:h-12`}><GraduationCap /></span>
 				<span class="">Undergrad</span>
 			</div>
 			<div
@@ -26,7 +30,7 @@
 					level === 'grad' ? 'text-primary font-bold' : 'text-[#CBB9FF]'
 				} `}
 			>
-				<span class={`w-12 h-12`}><GraduationCap /></span>
+				<span class={`w-8 h-8 md:w-12 md:h-12`}><GraduationCap /></span>
 				<span class="">Graduate</span>
 			</div>
 		</div>
@@ -61,14 +65,16 @@
 	</div>
 	<div class="flex flex-wrap gap-3">
 		<h6>Tags</h6>
-		{#each tags as tag}
-			<Badge
-				badge_text={tag}
-				badge_bg_color="#F5F5F5"
-				badge_text_color="#727272"
-				font_weight={'400'}
-			/>
-		{/each}
+		<div class="grid grid-cols-2 gap-2">
+			{#each tags as tag}
+				<Badge
+					badge_text={tag}
+					badge_bg_color="#F5F5F5"
+					badge_text_color="#727272"
+					font_weight={'400'}
+				/>
+			{/each}
+		</div>
 	</div>
 	<div class="">
 		<h6>Public Discussion</h6>
@@ -82,6 +88,6 @@
 
 <style lang="postcss">
 	h6 {
-		@apply w-full font-bold text-xl mb-4;
+		@apply w-full font-bold text-base md:text-lg xl:text-xl mb-4;
 	}
 </style>
