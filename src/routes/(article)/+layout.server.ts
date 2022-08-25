@@ -8,7 +8,7 @@ export async function load() {
 
 	try {
 		response = await directus.items('articles').readByQuery({
-			fields: ['title', 'slug', 'category.id', 'category.name']
+			fields: ['id', 'title', 'slug', 'category.id', 'category.name']
 		});
 	} catch (err) {
 		console.log(err);

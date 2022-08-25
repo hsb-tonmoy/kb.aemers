@@ -11,6 +11,7 @@
 		{#each data as article}
 			<BlogCard
 				title={article.title}
+				id={article.id}
 				slug={article.slug}
 				summary={article.summary}
 				image={article.featured_image}

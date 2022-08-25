@@ -1,5 +1,5 @@
 <script>
-	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
+	import { Navbar, NavBrand, NavHamburger, NavLi, NavUl } from 'flowbite-svelte';
 	import Logo from './Logo.svelte';
 </script>
 
@@ -7,7 +7,7 @@
 	let:hidden
 	let:toggle
 	fluid={false}
-	navClass={'navBar bg-white px-6 py-4 w-full'}
+	navClass={'navBar bg-white px-6 py-4 w-full z-[1000]'}
 	navDivClass={'flex flex-wrap items-center justify-between w-full'}
 >
 	<NavBrand href="/">

@@ -8,6 +8,7 @@ export async function load() {
 	try {
 		response = await directus.items('articles').readByQuery({
 			fields: [
+				'id',
 				'title',
 				'slug',
 				'featured_image',
@@ -47,7 +48,7 @@ export async function load() {
 	// Filter articles by featured
 
 	const featuredArticles = await directus.items('articles').readByQuery({
-		fields: ['title', 'slug', 'featured_image', 'summary'],
+		fields: ['title', 'id', 'slug', 'featured_image', 'summary'],
 		filter: {
 			featured: {
 				_eq: true

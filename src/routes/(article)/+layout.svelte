@@ -1,9 +1,14 @@
 <script>
 	import LeftSidebar from '$lib/layout/article/leftsidebar/LeftSidebar.svelte';
+	import RightSidebar from '$lib/layout/article/rightsidebar/RightSidebar.svelte';
 	import Header from '$lib/layout/header/Header.svelte';
 	export let data;
 
 	let categoryShow = true;
+
+	import { page } from '$app/stores';
+
+	$: current_article_id = $page.params.id;
 </script>
 
 <svelte:head>
@@ -14,8 +19,8 @@
 	<Header />
 	<div class="relative flex flex-1 w-full">
 		{#if categoryShow}
-			<div class="sticky left-0 top-0 w-[25%]">
-				<LeftSidebar data={data.categories} />
+			<div class="hidden lg:flex lg:fixed 2xl:sticky left-0 top-0 w-[20%] shrink-0 z-[400]">
+				<LeftSidebar {current_article_id} data={data.categories} />
 			</div>
 		{/if}
 		<div class="main">
@@ -26,6 +31,6 @@
 
 <style lang="postcss">
 	.main {
-		@apply mr-[20%] bg-white transition-all ease-in-out duration-500;
+		@apply bg-white transition-all ease-in-out duration-500 z-[500];
 	}
 </style>

@@ -19,7 +19,12 @@
 	</div>
 	{#each data.articles as article, i}
 		<div class="">
-			<BlogListItem title={article.title} slug={article.slug} image={article.featured_image} />
+			<BlogListItem
+				title={article.title}
+				id={article.id}
+				slug={article.slug}
+				image={article.featured_image}
+			/>
 			{#if i !== data.articles.length - 1}
 				<div class="list-divider" />
 			{/if}
