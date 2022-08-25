@@ -27,7 +27,7 @@
 			</div>
 			<ShareArticle />
 		</div>
-		<div class="flex xl:hidden mt-6">
+		<div class="flex xl:hidden mt-6 not-prose">
 			<RightSidebar
 				level={data.article.level}
 				time_sensitive={data.article.time_sensitive}

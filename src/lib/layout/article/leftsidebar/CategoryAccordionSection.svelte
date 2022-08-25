@@ -10,10 +10,18 @@
 		down: RightAngleArrow,
 		up: DownAngleArrow
 	};
+
+	const existsInArray = (array, item) => {
+		return array.indexOf(item) > -1;
+	};
 </script>
 
 {#each data as item}
-	<AccordionFlush {icons} id={item.category.id}>
+	<AccordionFlush
+		{icons}
+		id={item.category.id}
+		isOpen={item.articles.find((article) => article.id == current_article_id)}
+	>
 		<h2 class="text-sm md:text-base text-lighterText font-medium" slot="header">
 			{item.category.name}
 		</h2>
