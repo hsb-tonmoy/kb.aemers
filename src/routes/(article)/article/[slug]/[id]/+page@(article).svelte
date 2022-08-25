@@ -11,8 +11,8 @@
 	<title>Aemers Knowledgebase - {data.article.title}</title>
 </svelte:head>
 
-<div class="flex">
-	<main class="content-body">
+<div class="flex bg-white transition-all ease-in-out duration-500">
+	<main class="prose max-w-none content-body z-[500]">
 		<NavigationBox category={data.article.category} />
 		<div class="w-11/12">
 			<h1 class="font-bold text-4xl leading-normal">{data.article.title}</h1>
@@ -26,15 +26,15 @@
 			<ShareArticle />
 		</div>
 		<h3 class="font-bold text-3xl mt-10 mb-4">Overview</h3>
-		<p class="leading-normal mb-6">{data.article.summary}</p>
+		<p class="mb-6">{data.article.summary}</p>
 		<img
 			class="w-[80rem] h-[40rem] object-cover"
 			src={getAssetURL(data.article.featured_image)}
 			alt={data.article.title}
 		/>
-		<div class="mt-10">{data.article.content}</div>
+		<article class="mt-10">{@html data.article.content}</article>
 	</main>
-	<div class="sticky right-0 top-0 w-[25%] shrink-0">
+	<div class="hidden xl:flex sticky right-0 top-0 w-[25%] shrink-0 self-start max-h-screen z-[400]">
 		<RightSidebar
 			level={data.article.level}
 			time_sensitive={data.article.time_sensitive}

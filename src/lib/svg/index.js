@@ -1,6 +1,7 @@
 export { default as Alarm } from './Alarm.svelte';
 export { default as Clock } from './Clock.svelte';
 export { default as DoubleLeftArrow } from './DoubleLeftArrow.svelte';
+export { default as DoubleRightArrow } from './DoubleRightArrow.svelte';
 export { default as DownAngleArrow } from './DownAngleArrow.svelte';
 export { default as EmailSolid } from './EmailSolid.svelte';
 export { default as EmptyCircle } from './EmptyCircle.svelte';

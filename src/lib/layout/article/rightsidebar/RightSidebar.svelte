@@ -9,7 +9,7 @@
 		discussion_url: String;
 </script>
 
-<aside class="flex flex-col gap-y-12 py-12 px-16 w-full h-full">
+<aside class="flex flex-col gap-y-12 py-12 px-16 w-full h-full bg-white">
 	<div class="">
 		<h6>Level of Knowledge</h6>
 		<div class="flex items-center justify-between gap-x-6 px-10 py-4 bg-[#F7F4FF] rounded-lg">
@@ -72,9 +72,9 @@
 	</div>
 	<div class="">
 		<h6>Public Discussion</h6>
-		<button class="px-4 py-2 rounded-lg font-bold bg-[#EEF5FF] text-[#1877F2]"
-			><a class="flex items-center gap-x-1" href={discussion_url}
-				><span class="w-8 h-8"><FacebookColor /></span>Join Facebook Disucssion</a
+		<button class="px-4 py-2 rounded-lg font-bold bg-[#EEF5FF] text-[#1877F2] text-sm"
+			><a class="flex items-center gap-x-1" href={discussion_url} target="_blank"
+				><span class="w-7 h-7"><FacebookColor /></span>Join Facebook Disucssion</a
 			></button
 		>
 	</div>
