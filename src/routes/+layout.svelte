@@ -6,8 +6,6 @@
 	import { loading } from '$lib/loading/loading';
 
 	$: loading.setNavigate(!!$navigating);
-
-	$: console.log($navigating);
 </script>
 
 <Loader />

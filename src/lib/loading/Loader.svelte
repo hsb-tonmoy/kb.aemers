@@ -22,6 +22,6 @@
 
 <style lang="postcss">
 	.overlay {
-		@apply flex justify-center items-center absolute top-0 right-0 left-0 w-full h-full bg-white/60 z-[10000];
+		@apply flex justify-center items-center fixed top-0 right-0 left-0 w-[100vw] h-screen bg-white/60 z-[10000];
 	}
 </style>

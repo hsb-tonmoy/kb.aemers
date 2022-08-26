@@ -11,10 +11,6 @@
 	$: current_article_id = $page.params.id;
 </script>
 
-<svelte:head>
-	<title>Aemers - Knowledgebase</title>
-</svelte:head>
-
 <div class="flex flex-col h-screen">
 	<Header />
 	<div class="relative flex flex-1 w-full">

@@ -6,6 +6,10 @@
 	const query = $page.url.searchParams.get('query');
 </script>
 
+<svelte:head>
+	<title>Aemers Knowledgebase - {query}</title>
+</svelte:head>
+
 <div class="flex flex-col px-4 md:px-12 2xl:px-40 py-20">
 	<h2 class="text-lighterText font-bold text-2xl">Search Results for</h2>
 	<h1 class="font-bold text-secondary text-5xl">{query}</h1>
