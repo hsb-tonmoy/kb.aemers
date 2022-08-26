@@ -10,10 +10,6 @@
 		down: RightAngleArrow,
 		up: DownAngleArrow
 	};
-
-	const existsInArray = (array, item) => {
-		return array.indexOf(item) > -1;
-	};
 </script>
 
 {#each data as item}

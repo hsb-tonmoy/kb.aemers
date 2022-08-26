@@ -5,7 +5,7 @@
 <div
 	class="flex flex-col md:flex-row items-center justify-center gap-y-4 md:justify-between bg-bgColor px-3 py-6 md:py-3 md:px-6 font-bold w-full mb-12 rounded-2xl"
 >
-	<div class="flex items-center gap-x-1 text-base">
+	<div class="flex flex-wrap justify-center items-center gap-x-1 text-base">
 		<span class="">Knowledgebase</span>
 		<span class="text-primary">/</span>
 		<span class="">{category.name}</span>

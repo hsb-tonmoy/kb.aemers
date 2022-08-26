@@ -2,7 +2,7 @@
 	export let data;
 	import RightSidebar from '$lib/layout/article/rightsidebar/RightSidebar.svelte';
 	import { Clock } from '$lib/svg';
-	import { getAssetURL } from '$lib/utils';
+	import { convertDate, getAssetURL } from '$lib/utils';
 	import NavigationBox from './NavigationBox.svelte';
 	import ShareArticle from './ShareArticle.svelte';
 </script>
@@ -22,7 +22,7 @@
 		<div class="flex flex-wrap gap-y-3 items-center justify-between mt-1 lg:mt-3">
 			<div class="flex items-center gap-x-1 text-xs md:text-sm lg:text-base">
 				<span class="w-5 h-5 text-primary"><Clock /></span><span class="text-lighterText italic"
-					>Published on {data.article.published_on}</span
+					>Published on {convertDate(data.article.published_on)}</span
 				>
 			</div>
 			<ShareArticle />

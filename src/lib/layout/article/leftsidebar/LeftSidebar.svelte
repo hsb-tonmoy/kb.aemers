@@ -1,29 +1,21 @@
-<script>
-	import { DoubleLeftArrow } from '$lib/svg';
-	import { fly } from 'svelte/transition';
-	import CategoryAccordionSection from './CategoryAccordionSection.svelte';
-	export let categoryShow;
+<script lang="ts">
+	import CategoryList from './CategoryList.svelte';
+
+	export let categoryShow: Boolean;
 	export let data;
 	export let current_article_id;
 </script>
 
-<aside
-	in:fly={{ x: -200, duration: 500 }}
-	out:fly={{ x: -200, duration: 500 }}
-	class="flex flex-col py-12 px-6 md:px-10 w-[85vw] md:w-[50vw] 2xl:w-full h-full bg-white"
+<div
+	class="hidden 2xl:flex sticky left-0 top-0 w-[20%] shrink-0 z-[400] self-start max-h-screen overflow-y-auto"
 >
-	<div class="flex justify-between items-center gap-x-8 md:gap-x-0 mb-4">
-		<h2 class="font-bold text-xl">Categories</h2>
-		<button
-			on:click={() => (categoryShow = !categoryShow)}
-			class="flex items-center gap-x-1 text-secondary"
-		>
-			<span class="w-5 h-5 text-black">
-				<DoubleLeftArrow />
-			</span> Hide
-		</button>
+	<CategoryList bind:categoryShow {current_article_id} {data} />
+</div>
+<div
+	on:click|self={() => (categoryShow = !categoryShow)}
+	class="2xl:hidden absolute overflow-x-hidden overflow-y-auto w-full h-full top-0 left-0 right-0 bg-black/40 z-[1000]"
+>
+	<div class="2xl:hidden flex h-full shrink-0 self-start">
+		<CategoryList bind:categoryShow {current_article_id} {data} />
 	</div>
-	<div class="">
-		<CategoryAccordionSection {current_article_id} {data} />
-	</div>
-</aside>
+</div>

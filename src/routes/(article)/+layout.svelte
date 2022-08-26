@@ -1,4 +1,5 @@
 <script>
+	import { page } from '$app/stores';
 	import LeftSidebar from '$lib/layout/article/leftsidebar/LeftSidebar.svelte';
 	import Header from '$lib/layout/header/Header.svelte';
 	import { DoubleRightArrow } from '$lib/svg';
@@ -6,8 +7,6 @@
 	export let data;
 
 	let categoryShow = true;
-
-	import { page } from '$app/stores';
 
 	$: current_article_id = $page.params.id;
 </script>
@@ -29,21 +28,8 @@
 			>
 		{/if}
 		{#if categoryShow}
-			<div
-				class="hidden xl:flex sticky left-0 top-0 w-[20%] shrink-0 z-[400] self-start max-h-screen overflow-y-auto"
-			>
-				<LeftSidebar bind:categoryShow {current_article_id} data={data.categories} />
-			</div>
-			<div
-				on:click|self={() => (categoryShow = !categoryShow)}
-				class="xl:hidden absolute overflow-x-hidden overflow-y-auto w-full h-full top-0 left-0 right-0 bg-black/40 z-[1000]"
-			>
-				<div class="xl:hidden flex w-[50%] h-full shrink-0 self-start">
-					<LeftSidebar bind:categoryShow {current_article_id} data={data.categories} />
-				</div>
-			</div>
+			<LeftSidebar bind:categoryShow bind:current_article_id data={data.categories} />
 		{/if}
-
 		<slot />
 	</div>
 </div>
