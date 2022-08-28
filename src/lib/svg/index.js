@@ -12,6 +12,7 @@ export { default as Fire } from './Fire.svelte';
 export { default as GraduationCap } from './GraduationCap.svelte';
 export { default as LinkedInSolid } from './LinkedInSolid.svelte';
 export { default as LinkSolid } from './LinkSolid.svelte';
+export { default as Mail } from './Mail.svelte';
 export { default as Money } from './Money.svelte';
 export { default as RightAngleArrow } from './RightAngleArrow.svelte';
 export { default as Scale } from './Scale.svelte';

@@ -34,6 +34,6 @@
 
 <style lang="postcss">
 	.list-divider {
-		@apply my-4 h-px bg-[#BEBEBE];
+		@apply my-4 h-px bg-[#bebebe83];
 	}
 </style>

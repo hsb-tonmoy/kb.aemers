@@ -1,5 +1,6 @@
 <script>
 	import { navigating } from '$app/stores';
+	import Footer from '$lib/layout/footer/Footer.svelte';
 	import '../app.postcss';
 
 	import Loader from '$lib/loading/Loader.svelte';
@@ -10,3 +11,4 @@
 
 <Loader />
 <slot />
+<Footer />
