@@ -5,6 +5,32 @@
 	import { convertDate, getAssetURL } from '$lib/utils';
 	import NavigationBox from './NavigationBox.svelte';
 	import ShareArticle from './ShareArticle.svelte';
+
+	let categoryIndex, currentArticleIndex, nextArticleObject, previousArticleObject;
+
+	const findCategoryIndex = (categories, id) => {
+		return categories.findIndex((item) => item.category.id === id);
+	};
+
+	const findArticleIndexInCategory = () => {
+		categoryIndex = findCategoryIndex(data.categories, data.article.category.id);
+
+		return data.categories[categoryIndex].articles.findIndex((item) => item.id == data.article.id);
+	};
+
+	currentArticleIndex = findArticleIndexInCategory();
+
+	const getPreviousArticleObject = () => {
+		if (currentArticleIndex === 0) {
+			previousArticleObject = data.categories[categoryIndex].articles[currentArticleIndex];
+		} else {
+			previousArticleObject = data.categories[categoryIndex].articles[currentArticleIndex - 1];
+		}
+	};
+
+	previousArticleObject = getPreviousArticleObject();
+
+	$: console.log(data.categories[categoryIndex].articles[currentArticleIndex]);
 </script>
 
 <svelte:head>
