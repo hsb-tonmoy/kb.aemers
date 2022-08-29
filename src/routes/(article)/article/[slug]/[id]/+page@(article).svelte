@@ -12,36 +12,40 @@
 		next: {}
 	};
 
-	const findCategoryIndex = () => {
-		const currentCategoryID = data.article.category.id;
-		const currentCategoryIndex = data.categories.findIndex(
+	$: {
+		let currentCategoryID = data.article.category.id;
+		let currentCategoryIndex = data.categories.findIndex(
 			(item) => item.category.id === currentCategoryID
 		);
-		const currentArticleIndex = data.categories[currentCategoryIndex].articles.findIndex(
+		let currentArticleIndex = data.categories[currentCategoryIndex].articles.findIndex(
 			(item) => item.id == data.article.id
 		);
 
 		if (currentArticleIndex === 0) {
-			previousAndNextArticles.previous =
-				data.categories[currentCategoryIndex - 1].articles[
-					data.categories[currentCategoryIndex - 1].articles.length - 1
-				];
+			if (data.categories[currentCategoryIndex - 1]) {
+				previousAndNextArticles.previous =
+					data.categories[currentCategoryIndex - 1].articles[
+						data.categories[currentCategoryIndex - 1].articles.length - 1
+					];
+			} else {
+				previousAndNextArticles.previous = {};
+			}
 		} else {
 			previousAndNextArticles.previous =
 				data.categories[currentCategoryIndex].articles[currentArticleIndex - 1];
 		}
 
 		if (currentArticleIndex === data.categories[currentCategoryIndex].articles.length - 1) {
-			previousAndNextArticles.next = data.categories[currentCategoryIndex + 1].articles[0];
+			if (data.categories[currentCategoryIndex + 1]) {
+				previousAndNextArticles.next = data.categories[currentCategoryIndex + 1].articles[0];
+			} else {
+				previousAndNextArticles.next = {};
+			}
 		} else {
 			previousAndNextArticles.next =
 				data.categories[currentCategoryIndex].articles[currentArticleIndex + 1];
 		}
-	};
-
-	onMount(() => {
-		findCategoryIndex();
-	});
+	}
 </script>
 
 <svelte:head>
@@ -51,8 +55,8 @@
 <div class="flex bg-white transition-all ease-in-out duration-500">
 	<main class="prose max-w-none content-body z-[500]">
 		<NavigationBox
-			previous={previousAndNextArticles.previous}
-			next={previousAndNextArticles.next}
+			bind:previous={previousAndNextArticles.previous}
+			bind:next={previousAndNextArticles.next}
 			category={data.article.category}
 		/>
 		<div class="lg:w-11/12">
