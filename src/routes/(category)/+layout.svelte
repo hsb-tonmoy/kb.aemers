@@ -1,4 +1,5 @@
 <script>
+	import Footer from '$lib/layout/footer/Footer.svelte';
 	import Header from '$lib/layout/header/Header.svelte';
 	export let data;
 	const categoryName = data.articles[0].category.name;
@@ -19,4 +20,5 @@
 		</section>
 		<slot />
 	</div>
+	<Footer />
 </div>

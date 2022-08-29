@@ -3,8 +3,6 @@
 	export let category;
 	export let previous;
 	export let next;
-
-	$: console.log(!next.slug);
 </script>
 
 <div

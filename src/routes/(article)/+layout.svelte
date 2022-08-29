@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import LeftSidebar from '$lib/layout/article/leftsidebar/LeftSidebar.svelte';
+	import Footer from '$lib/layout/footer/Footer.svelte';
 	import Header from '$lib/layout/header/Header.svelte';
 	import { DoubleRightArrow } from '$lib/svg';
 	import { fly } from 'svelte/transition';
@@ -28,4 +29,6 @@
 		{/if}
 		<slot />
 	</div>
+
+	<Footer />
 </div>

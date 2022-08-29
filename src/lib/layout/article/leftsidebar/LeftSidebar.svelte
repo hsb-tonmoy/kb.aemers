@@ -6,9 +6,7 @@
 	export let current_article_id;
 </script>
 
-<div
-	class="hidden 2xl:flex sticky left-0 top-0 w-[20%] shrink-0 z-[400] self-start max-h-screen overflow-y-auto"
->
+<div class="hidden 2xl:flex sticky left-0 top-0 w-[20%] shrink-0 z-[400] overflow-y-auto">
 	<CategoryList bind:categoryShow {current_article_id} {data} />
 </div>
 <div

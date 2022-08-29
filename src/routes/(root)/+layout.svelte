@@ -1,4 +1,5 @@
 <script>
+	import Footer from '$lib/layout/footer/Footer.svelte';
 	import Header from '$lib/layout/header/Header.svelte';
 	import Hero from '$lib/layout/home/hero/Hero.svelte';
 </script>
@@ -12,3 +13,4 @@
 	<Hero />
 </div>
 <slot />
+<Footer />
