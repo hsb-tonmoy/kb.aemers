@@ -1,5 +1,7 @@
 <script>
 	export let category;
+	export let previous;
+	export let next;
 </script>
 
 <div
@@ -13,11 +15,11 @@
 	<div class="flex items-center gap-x-2">
 		<button
 			class="px-3 py-2 bg-transparent hover:bg-primary border-2 border-primary rounded-xl text-sm lg:text-base text-primary hover:text-white"
-			>Previous</button
+			><a href={`/article/${previous.slug}/${previous.id}`}>Previous</a></button
 		>
 		<button
 			class="px-3 py-2 bg-primary hover:bg-primaryDarker border-2 border-primary rounded-xl text-sm lg:text-base text-white"
-			>Next Article</button
+			><a href={`/article/${next.slug}/${next.id}`}>Next Article</a></button
 		>
 	</div>
 </div>

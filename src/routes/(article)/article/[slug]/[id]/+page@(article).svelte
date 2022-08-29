@@ -3,34 +3,45 @@
 	import RightSidebar from '$lib/layout/article/rightsidebar/RightSidebar.svelte';
 	import { Clock } from '$lib/svg';
 	import { convertDate, getAssetURL } from '$lib/utils';
+	import { onMount } from 'svelte';
 	import NavigationBox from './NavigationBox.svelte';
 	import ShareArticle from './ShareArticle.svelte';
 
-	let categoryIndex, currentArticleIndex, nextArticleObject, previousArticleObject;
-
-	const findCategoryIndex = (categories, id) => {
-		return categories.findIndex((item) => item.category.id === id);
+	$: previousAndNextArticles = {
+		previous: {},
+		next: {}
 	};
 
-	const findArticleIndexInCategory = () => {
-		categoryIndex = findCategoryIndex(data.categories, data.article.category.id);
+	const findCategoryIndex = () => {
+		const currentCategoryID = data.article.category.id;
+		const currentCategoryIndex = data.categories.findIndex(
+			(item) => item.category.id === currentCategoryID
+		);
+		const currentArticleIndex = data.categories[currentCategoryIndex].articles.findIndex(
+			(item) => item.id == data.article.id
+		);
 
-		return data.categories[categoryIndex].articles.findIndex((item) => item.id == data.article.id);
-	};
-
-	currentArticleIndex = findArticleIndexInCategory();
-
-	const getPreviousArticleObject = () => {
 		if (currentArticleIndex === 0) {
-			previousArticleObject = data.categories[categoryIndex].articles[currentArticleIndex];
+			previousAndNextArticles.previous =
+				data.categories[currentCategoryIndex - 1].articles[
+					data.categories[currentCategoryIndex - 1].articles.length - 1
+				];
 		} else {
-			previousArticleObject = data.categories[categoryIndex].articles[currentArticleIndex - 1];
+			previousAndNextArticles.previous =
+				data.categories[currentCategoryIndex].articles[currentArticleIndex - 1];
+		}
+
+		if (currentArticleIndex === data.categories[currentCategoryIndex].articles.length - 1) {
+			previousAndNextArticles.next = data.categories[currentCategoryIndex + 1].articles[0];
+		} else {
+			previousAndNextArticles.next =
+				data.categories[currentCategoryIndex].articles[currentArticleIndex + 1];
 		}
 	};
 
-	previousArticleObject = getPreviousArticleObject();
-
-	$: console.log(data.categories[categoryIndex].articles[currentArticleIndex]);
+	onMount(() => {
+		findCategoryIndex();
+	});
 </script>
 
 <svelte:head>
@@ -39,7 +50,11 @@
 
 <div class="flex bg-white transition-all ease-in-out duration-500">
 	<main class="prose max-w-none content-body z-[500]">
-		<NavigationBox category={data.article.category} />
+		<NavigationBox
+			previous={previousAndNextArticles.previous}
+			next={previousAndNextArticles.next}
+			category={data.article.category}
+		/>
 		<div class="lg:w-11/12">
 			<h1 class="font-bold text-2xl md:text-3xl lg:text-4xl leading-normal">
 				{data.article.title}
