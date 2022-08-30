@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { DownAngleArrow, EmptyCircle, FilledCircle, RightAngleArrow } from '$lib/svg';
-	import { AccordionFlush } from 'flowbite-svelte';
+	import { AccordionItem } from 'flowbite-svelte';
 	import { Svroller } from 'svrollbar';
 	export let data;
 
@@ -13,7 +13,8 @@
 </script>
 
 {#each data as item}
-	<AccordionFlush
+	<AccordionItem
+		flush
 		{icons}
 		id={item.category.id}
 		isOpen={item.articles.find((article) => article.id == current_article_id)}
@@ -47,7 +48,7 @@
 				</div>
 			</Svroller>
 		</div>
-	</AccordionFlush>
+	</AccordionItem>
 {/each}
 
 <style lang="postcss">
