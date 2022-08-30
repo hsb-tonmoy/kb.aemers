@@ -17,13 +17,13 @@
 		<button
 			disabled={!previous.slug}
 			on:click={() => goto(`/article/${previous.slug}/${previous.id}`)}
-			class="px-3 py-2 bg-transparent hover:bg-primary border-2 border-primary disabled:border-primary/20 disabled:bg-primary/50 rounded-xl text-sm lg:text-base text-primary hover:text-white disabled:hover:text-primary"
+			class="umami--click--previous-article px-3 py-2 bg-transparent hover:bg-primary border-2 border-primary disabled:border-primary/20 disabled:bg-primary/50 rounded-xl text-sm lg:text-base text-primary hover:text-white disabled:hover:text-primary"
 			>Previous</button
 		>
 		<button
 			on:click={() => goto(`/article/${next.slug}/${next.id}`)}
 			disabled={!next.slug}
-			class="px-3 py-2 bg-primary hover:bg-primaryDarker border-2 border-primary disabled:border-primary/20 disabled:bg-primary/50 rounded-xl text-sm lg:text-base text-white"
+			class="umami--click--next-article px-3 py-2 bg-primary hover:bg-primaryDarker border-2 border-primary disabled:border-primary/20 disabled:bg-primary/50 rounded-xl text-sm lg:text-base text-white"
 			>Next Article</button
 		>
 	</div>

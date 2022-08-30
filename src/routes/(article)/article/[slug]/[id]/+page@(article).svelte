@@ -1,10 +1,12 @@
 <script>
-	export let data;
 	import RightSidebar from '$lib/layout/article/rightsidebar/RightSidebar.svelte';
 	import { Clock } from '$lib/svg';
 	import { convertDate, getAssetURL } from '$lib/utils';
+	import { MetaTags } from 'svelte-meta-tags';
 	import NavigationBox from './NavigationBox.svelte';
 	import ShareArticle from './ShareArticle.svelte';
+
+	export let data;
 
 	$: previousAndNextArticles = {
 		previous: {},
@@ -46,6 +48,34 @@
 		}
 	}
 </script>
+
+<MetaTags
+	title={data.article.og_title}
+	titleTemplate="%s | Aemers Knowledgebase"
+	description={data.article.og_description}
+	openGraph={{
+		url: `https://kb.aemers.com/article/${data.article.slug}/${data.article.id}`,
+		title: data.article.og_title,
+		description: data.article.description,
+		images: [
+			{
+				url: getAssetURL(data.article.og_image),
+				width: 1200,
+				height: 630,
+				alt: data.article.og_title
+			}
+		],
+		site_name: 'Aemers Knowledgebase'
+	}}
+	twitter={{
+		site: '@aemers',
+		cardType: 'summary_large_image',
+		title: data.article.og_title,
+		description: data.article.description,
+		image: getAssetURL(data.article.og_image),
+		imageAlt: data.article.og_title
+	}}
+/>
 
 <div class="flex bg-white transition-all ease-in-out duration-500">
 	<main class="">
