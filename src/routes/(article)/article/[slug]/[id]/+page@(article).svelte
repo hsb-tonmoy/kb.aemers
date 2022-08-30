@@ -78,8 +78,8 @@
 />
 
 <div class="flex bg-white transition-all ease-in-out duration-500">
-	<main class="">
-		<div class="max-w-none prose content-body z-[500]">
+	<main class="z-[500]">
+		<div class="max-w-none prose content-body">
 			<NavigationBox
 				bind:previous={previousAndNextArticles.previous}
 				bind:next={previousAndNextArticles.next}
@@ -108,8 +108,10 @@
 					discussion_url={data.article.discussion_url}
 				/>
 			</div>
-			<h3 class="font-bold text-xl md:text-2xl lg:text-3xl mt-10 mb-4">Overview</h3>
-			<p class="mb-6">{data.article.summary}</p>
+			{#if data.article.summary}
+				<h3 class="font-bold text-xl md:text-2xl lg:text-3xl mt-10 mb-4">Overview</h3>
+				<p class="mb-6">{data.article.summary}</p>
+			{/if}
 			<img
 				class="w-[80rem] h-[40rem] object-cover"
 				src={getAssetURL(data.article.featured_image)}
