@@ -22,7 +22,7 @@
 			{item.category.name}
 		</h2>
 		<div class="category-container text-lighterText" slot="body">
-			<Svroller alwaysVisible={true} width="100%" height="12rem">
+			<Svroller alwaysVisible={true} width="100%" height="3rem">
 				<div class="flex flex-col gap-y-8 md:ml-4 w-full">
 					{#each item.articles as article}
 						<a

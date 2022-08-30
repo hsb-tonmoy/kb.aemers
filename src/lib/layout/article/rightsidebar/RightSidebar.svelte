@@ -63,19 +63,21 @@
 			/>
 		{/if}
 	</div>
-	<div class="flex flex-wrap gap-3">
-		<h6>Tags</h6>
-		<div class="grid grid-cols-2 gap-2">
-			{#each tags as tag}
-				<Badge
-					badge_text={tag}
-					badge_bg_color="#F5F5F5"
-					badge_text_color="#727272"
-					font_weight={'400'}
-				/>
-			{/each}
+	{#if tags}
+		<div class="flex flex-wrap gap-3">
+			<h6>Tags</h6>
+			<div class="grid grid-cols-2 gap-2">
+				{#each tags as tag}
+					<Badge
+						badge_text={tag}
+						badge_bg_color="#F5F5F5"
+						badge_text_color="#727272"
+						font_weight={'400'}
+					/>
+				{/each}
+			</div>
 		</div>
-	</div>
+	{/if}
 	<div class="">
 		<h6>Public Discussion</h6>
 		<button class="px-4 py-2 rounded-lg font-bold bg-[#EEF5FF] text-[#1877F2] text-sm"
