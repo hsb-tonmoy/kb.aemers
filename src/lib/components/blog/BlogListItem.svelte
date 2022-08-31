@@ -7,7 +7,7 @@
 	<a href={`/article/${slug}/${id}`} class="flex items-center gap-x-4">
 		<img
 			class="shrink-0 object-cover w-20 h-10 md:w-24 md:h-12 xl:w-28 xl:h-14 rounded-lg"
-			src={getAssetURL(image)}
+			src={getAssetURL(image, '120')}
 			alt="blog-img"
 		/>
 		<h6 class="text-black text-sm xl:text-base">{title}</h6>

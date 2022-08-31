@@ -7,7 +7,7 @@
 	<a href={`/article/${slug}/${id}`}
 		><img
 			class="object-cover h-32 md:h-48 w-full rounded-xl"
-			src={getAssetURL(image)}
+			src={getAssetURL(image, '380')}
 			alt="blog-img"
 		/></a
 	>
