@@ -50,19 +50,19 @@
 </script>
 
 <MetaTags
-	title={data.article.og_title}
+	title={data.article.og_title || data.article.title}
 	titleTemplate="%s | Aemers Knowledgebase"
-	description={data.article.og_description}
+	description={data.article.og_description || data.article.summary}
 	openGraph={{
 		url: `https://kb.aemers.com/article/${data.article.slug}/${data.article.id}`,
-		title: data.article.og_title,
-		description: data.article.description,
+		title: data.article.og_title || data.article.title,
+		description: data.article.description || data.article.summary,
 		images: [
 			{
-				url: getAssetURL(data.article.og_image),
+				url: getAssetURL(data.article.og_image) || getAssetURL(data.article.featured_image),
 				width: 1200,
 				height: 630,
-				alt: data.article.og_title
+				alt: data.article.og_title || data.article.title
 			}
 		],
 		site_name: 'Aemers Knowledgebase'
@@ -70,10 +70,10 @@
 	twitter={{
 		site: '@aemers',
 		cardType: 'summary_large_image',
-		title: data.article.og_title,
-		description: data.article.description,
-		image: getAssetURL(data.article.og_image),
-		imageAlt: data.article.og_title
+		title: data.article.og_title || data.article.title,
+		description: data.article.description || data.article.summary,
+		image: getAssetURL(data.article.og_image) || getAssetURL(data.article.featured_image),
+		imageAlt: data.article.og_title || data.article.title
 	}}
 />
 
