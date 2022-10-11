@@ -96,7 +96,9 @@
 						>Published on {convertDate(data.article.published_on)}</span
 					>
 				</div>
-				<ShareArticle />
+				<ShareArticle
+					title={data.article.og_title || data.article.title + ' | Aemers Knowledgebase'}
+				/>
 			</div>
 			<div class="flex xl:hidden mt-6 not-prose">
 				<RightSidebar

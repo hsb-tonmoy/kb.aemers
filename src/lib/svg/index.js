@@ -19,3 +19,4 @@ export { default as Scale } from './Scale.svelte';
 export { default as Scroll } from './Scroll.svelte';
 export { default as Search } from './Search.svelte';
 export { default as Share } from './Share.svelte';
+export { default as TwitterSolid } from './TwitterSolid.svelte';

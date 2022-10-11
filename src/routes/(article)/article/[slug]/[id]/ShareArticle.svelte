@@ -1,5 +1,6 @@
 <script>
-	import { EmailSolid, FacebookSolid, LinkedInSolid, LinkSolid, Share } from '$lib/svg';
+	import { FacebookSolid, LinkedInSolid, LinkSolid, Share, TwitterSolid } from '$lib/svg';
+	import { Tooltip } from 'flowbite-svelte';
 	import { onMount } from 'svelte';
 
 	let url;
@@ -11,6 +12,10 @@
 	export let title = '';
 
 	$: if (title.includes(' ')) title = title.replaceAll(' ', '%20');
+
+	function copyUrl() {
+		navigator.clipboard.writeText(url);
+	}
 </script>
 
 <div class="flex items-center gap-x-2">
@@ -24,8 +29,23 @@
 			aria-label="Share on Facebook"
 			class="w-4 h-4 lg:w-5 lg:h-5"><FacebookSolid /></a
 		>
-		<span class="w-4 h-4 lg:w-5 lg:h-5"><LinkedInSolid /></span>
-		<span class="w-4 h-4 lg:w-5 lg:h-5"><EmailSolid /></span>
-		<span class="w-4 h-4 lg:w-5 lg:h-5"><LinkSolid /></span>
+		<a
+			href={'https://twitter.com/intent/tweet/?text=' +
+				title +
+				'&amp;hashtags=foodis&amp;url=' +
+				url}
+			target="_blank"
+			rel="noopener"
+			aria-label="Share on Twitter"
+			class="w-4 h-4 lg:w-5 lg:h-5"><TwitterSolid /></a
+		>
+		<a
+			href="https://www.linkedin.com/sharing/share-offsite/?url={url}"
+			target="_blank"
+			rel="noopener"
+			aria-label="Share on LinkedIn"
+			class="w-4 h-4 lg:w-5 lg:h-5"><LinkedInSolid /></a
+		>
+		<button id="link" on:click={copyUrl} class="w-4 h-4 lg:w-5 lg:h-5"><LinkSolid /></button>
 	</div>
 </div>
